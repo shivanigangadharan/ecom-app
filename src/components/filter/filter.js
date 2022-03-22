@@ -16,11 +16,12 @@ export default function Filter() {
                     <u>Clear</u>
                 </h3>
                 <h3 class="bold">Price</h3>
-                <input class="pricerange" type="range" list="pricerange" />
+                <input min="500" max="1500" onClick={(e) => { dispatch({ type: "FILTER_BY_PRICE", payload: e.target.value }) }} class="pricerange" type="range" list="pricerange" />
+                {/*  */}
                 <datalist id="pricerange">
-                    <option value="50" label="50"></option>
-                    <option value="150" label="150"></option>
-                    <option value="200" label="200"></option>
+                    <option value="500" label="500"></option>
+                    <option value="1000" label="1000"></option>
+                    <option value="1500" label="1500"></option>
                 </datalist>
                 <h3 class="bold">Category</h3>
                 <div class="cateory">

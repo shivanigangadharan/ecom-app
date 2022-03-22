@@ -14,3 +14,11 @@ export function ratingData(product, rating) {
     }
     return [...product];
 }
+
+export function priceFilter(product, priceLimit) {
+    if (priceLimit > 0) {
+        return [...product].filter((prod) => prod.price <= priceLimit);
+    }
+    return [...product];
+
+}
