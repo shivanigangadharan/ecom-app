@@ -1,0 +1,52 @@
+.homepage{
+    background: var(--lightergrey);
+    padding: 8rem 4rem;
+}
+.img-grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.brandname{
+    color: var(--darkgrey);
+}
+.content-grid{
+    display: grid;
+    grid-template:
+            'main main'
+            'main main'
+            'sub1 sub2';
+    gap: 20px;
+    margin-top: 2rem;
+
+}
+.section-main{
+    background-image: url(../../assets/banner.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: main;
+    height: 400px;
+}
+.section-sub{
+    background:var(--lightgrey);
+    padding: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+.new-arrivals{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.new-img{
+    width: 30%;
+}
+.s1{
+    grid-area: sub1;
+}
+.s2{
+    grid-area: sub2;
+}

@@ -1,0 +1,19 @@
+.products-page{
+    background: var(--lightergrey);
+    padding: 8rem 30px 40px 350px;
+}
+.products-grid{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    gap: 30px;
+}
+datalist{
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    color: var(--grey);
+}
+.pricerange{
+    width: 100%;
+}

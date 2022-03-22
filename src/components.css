@@ -1,0 +1,25 @@
+@import url("./components/navbar/navbar.css");
+/* @import url("./pages/login/login.css");
+@import url("./pages/products/products.css");
+@import url("./components/filters.css");
+@import url("./pages/wishlist/wishlist.css");
+@import url("./pages/cart/cart.css"); */
+/* @import url("./main.css"); */
+
+:root{
+    --lightergrey: #f8f8f8;
+}
+body{
+    margin: 0;
+}
+.item-img{
+    width: 15.625rem;
+    height: 18.75rem;
+}
+.container-card{
+    width: 15.625rem;
+    background: var(--white) !important;
+}
+.bold{
+    font-weight: 800;
+}
