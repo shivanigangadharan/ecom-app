@@ -12,7 +12,7 @@ export const products = [
     brand: "Allen Solly",
     price: 800,
     imgurl: "https://rukminim2.flixcart.com/image/714/857/k0h12fk0/t-shirt/v/t/v/m-askporgfe35420-allen-solly-original-imafk8s5wnqwygff.jpeg?q=50",
-    categoryName: "Mens clothing",
+    category: "mens clothing",
     rating: 4,
   },
   {
@@ -21,7 +21,7 @@ export const products = [
     brand: "Levis",
     price: 1800,
     imgurl: "https://www.levi.in/dw/image/v2/BBRC_PRD/on/demandware.static/-/Sites-LeviMaster-Catalog/en_IN/dw1a8d10a2/images/hi-res/A14960000/A14960000_01_Front.jpg?sw=451&sh=600",
-    categoryName: "Womens clothing",
+    category: "womens clothing",
     rating: 3.5,
   },
   {
@@ -30,7 +30,7 @@ export const products = [
     brand: "Little Kangaroo",
     price: 1200,
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
-    categoryName: "Kids clothing",
+    category: "Kids clothing",
     rating: 4.3,
   },
   {
@@ -39,7 +39,7 @@ export const products = [
     brand: "Allen Solly",
     price: 2500,
     imgurl: "https://allensolly.imgix.net/img/app/product/2/220051-727357.jpg?auto=format",
-    categoryName: "Womens clothing",
+    category: "womens clothing",
     rating: 3.8,
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     brand: "Raymond",
     price: 1700,
     imgurl: "https://m.media-amazon.com/images/I/71JjjVSH+5L._UY550_.jpg",
-    categoryName: "Mens clothing",
+    category: "mens clothing",
     rating: 4.2,
   },
   {
@@ -57,7 +57,7 @@ export const products = [
     brand: "Powerpuff",
     price: 250,
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
-    categoryName: "Kids clothing",
+    category: "Kids clothing",
     rating: 3.9,
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     brand: "Marks & Spencer",
     price: 690,
     imgurl: "https://asset1.cxnmarksandspencer.com/is/image/mands/OD_01_T43_3219K_F4_X_EC_0?$Intl_PDP_Tab$",
-    categoryName: "Womens clothing",
+    category: "womens clothing",
     rating: 4.7
   },
 ];

@@ -26,11 +26,11 @@ export default function Filter() {
                 <h3 class="bold">Category</h3>
                 <div class="cateory">
                     <div>
-                        <input class="checkbox" id="womens-clothing" type="checkbox" />
+                        <input onClick={(e) => { dispatch({ type: "FILTER_BY_CATEGORY", payload: e.target.value }) }} class="checkbox" value="womens clothing" type="checkbox" />
                         <label for="womens-clothing">Womens clothing</label>
                     </div>
                     <div>
-                        <input class="checkbox" id="mens-clothing" type="checkbox" />
+                        <input onClick={(e) => { dispatch({ type: "FILTER_BY_CATEGORY", payload: e.target.value }) }} class="checkbox" value="mens clothing" type="checkbox" />
                         <label for="mens-clothing">Mens clothing</label>
                     </div>
                     <div>

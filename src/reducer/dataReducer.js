@@ -3,6 +3,7 @@ export const initialState = {
     sortBy: "",
     rating: "",
     priceLimit: "",
+    category: [],
 }
 
 export const dataReducer = (state, action) => {
@@ -16,7 +17,9 @@ export const dataReducer = (state, action) => {
         case "FILTER_BY_PRICE":
             console.log("pl: ", action.payload);
             return { ...state, priceLimit: action.payload }
+        case "FILTER_BY_CATEGORY":
+            return { ...state, category: [...state.category, action.payload] }
         case "CLEAR":
-            return { ...state, product: state.product, sortBy: "", rating: "", priceLimit: "" }
+            return { ...state, product: state.product, sortBy: "", rating: "", priceLimit: "", category: [] }
     }
 }

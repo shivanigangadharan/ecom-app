@@ -20,5 +20,15 @@ export function priceFilter(product, priceLimit) {
         return [...product].filter((prod) => prod.price <= priceLimit);
     }
     return [...product];
+}
 
+export function categoryFilter(product, category) {
+    if (category.length == 0) {
+        console.log("not filtering by cat");
+        return [...product];
+    }
+    else {
+        console.log("filtering by cat", category);
+        return [...product].filter((prod) => category.includes(prod.category));
+    }
 }
