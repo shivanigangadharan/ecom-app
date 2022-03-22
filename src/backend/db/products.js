@@ -13,6 +13,7 @@ export const products = [
     price: "800",
     imgurl: "https://rukminim2.flixcart.com/image/714/857/k0h12fk0/t-shirt/v/t/v/m-askporgfe35420-allen-solly-original-imafk8s5wnqwygff.jpeg?q=50",
     categoryName: "Mens clothing",
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -21,6 +22,7 @@ export const products = [
     price: "1800",
     imgurl: "https://www.levi.in/dw/image/v2/BBRC_PRD/on/demandware.static/-/Sites-LeviMaster-Catalog/en_IN/dw1a8d10a2/images/hi-res/A14960000/A14960000_01_Front.jpg?sw=451&sh=600",
     categoryName: "Womens clothing",
+    rating: 3.5,
   },
   {
     _id: uuid(),
@@ -29,6 +31,7 @@ export const products = [
     price: "1200",
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
     categoryName: "Kids clothing",
+    rating: 4.3,
   },
   {
     _id: uuid(),
@@ -37,6 +40,7 @@ export const products = [
     price: "2000",
     imgurl: "https://allensolly.imgix.net/img/app/product/2/220051-727357.jpg?auto=format",
     categoryName: "Womens clothing",
+    rating: 3.8,
   },
   {
     _id: uuid(),
@@ -45,6 +49,7 @@ export const products = [
     price: "1700",
     imgurl: "https://m.media-amazon.com/images/I/71JjjVSH+5L._UY550_.jpg",
     categoryName: "Mens clothing",
+    rating: 4.2,
   },
   {
     _id: uuid(),
@@ -53,6 +58,7 @@ export const products = [
     price: "250",
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
     categoryName: "Kids clothing",
+    rating: 3.9,
   },
   {
     _id: uuid(),
@@ -61,5 +67,6 @@ export const products = [
     price: "690",
     imgurl: "https://asset1.cxnmarksandspencer.com/is/image/mands/OD_01_T43_3219K_F4_X_EC_0?$Intl_PDP_Tab$",
     categoryName: "Womens clothing",
+    rating: 4.7
   },
 ];

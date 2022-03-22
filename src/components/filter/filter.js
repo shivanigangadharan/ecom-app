@@ -2,12 +2,16 @@ import React from 'react';
 import './filter.css';
 import { useFilter } from '../../context/filterContext';
 
+const STARS = [4, 3, 2, 1];
+
 export default function Filter() {
+
     const { state, dispatch } = useFilter();
+
     return (
         <div>
             <div class="container-filters">
-                <h3 class="filter-top">
+                <h3 class="filter-top" onClick={(e) => { dispatch({ type: "CLEAR", payload: "" }) }}>
                     <b class="bold"> Filters</b>
                     <u>Clear</u>
                 </h3>
@@ -22,30 +26,26 @@ export default function Filter() {
                 <div class="cateory">
                     <div>
                         <input class="checkbox" id="womens-clothing" type="checkbox" />
-                        <label for="womens-clothing">Women clothing</label>
+                        <label for="womens-clothing">Womens clothing</label>
                     </div>
                     <div>
-                        <input class="checkbox" id="men-clothing" type="checkbox" />
-                        <label for="womens-clothing">Men clothing</label>
+                        <input class="checkbox" id="mens-clothing" type="checkbox" />
+                        <label for="mens-clothing">Mens clothing</label>
+                    </div>
+                    <div>
+                        <input class="checkbox" id="kids-clothing" type="checkbox" />
+                        <label for="kids-clothing">Kids clothing</label>
                     </div>
                 </div>
                 <h3 class="bold">Rating</h3>
-                <div>
-                    <input type="radio" id="4+" name="rating" />
-                    <label for="4+">4 stars and above</label>
-                </div>
-                <div>
-                    <input type="radio" id="3+" name="rating" />
-                    <label for="3+">3 stars and above</label>
-                </div>
-                <div>
-                    <input type="radio" id="2+" name="rating" />
-                    <label for="2+">2 stars and above</label>
-                </div>
-                <div>
-                    <input type="radio" id="1+" name="rating" />
-                    <label for="1+">1 star and above</label>
-                </div>
+                {STARS.map((star, index) => {
+                    return (
+                        <div>
+                            <input onClick={(e) => { dispatch({ type: "SORT_BY_RATING", payload: star }) }} type="radio" id="4+" name="rating" />
+                            <label for="{star}"> {star} stars and above</label>
+                        </div>
+                    )
+                })}
 
                 <h3 class="bold">Sort by</h3>
                 <div>
@@ -57,6 +57,6 @@ export default function Filter() {
                     <label for="high-low">Price - High to Low</label>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

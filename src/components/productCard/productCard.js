@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function ProductCard({ product }) {
-    const { title, author, brand, imgurl, price } = product;
+    const { title, author, brand, imgurl, price, rating } = product;
     return (
         <div>
             <div className="container-card">
@@ -9,7 +9,9 @@ export default function ProductCard({ product }) {
                 <div className="content center">
                     <h3 className="item-name">{title}</h3>
                     <p className="grey-text">{brand} </p>
+                    <p> Rating : {rating} </p>
                     <b>Rs. {price}</b>
+
                 </div>
                 <button className="btn login cart">Add to cart</button>
             </div>

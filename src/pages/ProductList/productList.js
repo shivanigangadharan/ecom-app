@@ -4,18 +4,22 @@ import Filter from '../../components/filter/filter';
 import ProductCard from '../../components/productCard/productCard';
 import { products } from '../../backend/db/products';
 import { useFilter, FilterProvider } from '../../context/filterContext';
+import { sortData, ratingData } from '../../services/sortData';
 
 export default function ProductList() {
 
     const { state } = useFilter();
+    const sortedData = sortData([...state.product], state.sortBy);
+    const ratingSorted = ratingData(sortedData, state.rating);
+
     return (
         <div>
             <Filter />
             <div class="products-page">
                 <span class="bold">Showing all products</span>
-                ({state.product.length} products)
+                ({ratingSorted.length} products)
                 <div class="products-grid">
-                    {state.product.map((product) => {
+                    {ratingSorted.map((product) => {
                         return <ProductCard product={product} />
                     })}
                 </div>

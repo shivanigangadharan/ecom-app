@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "womens clothing",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "A wide variety of clothing for women ranging from casuals, traditionals to formal wear from top quality brands.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "mens clothing",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Exclusive clothing collection for men comprising of comfortable and latest trending formal, casual wear and more.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "kids clothing",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Range of comfortable and skin friendly wear for children in the age group of 4 to 12 years.",
   },
 ];
