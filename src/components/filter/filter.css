@@ -16,3 +16,12 @@
     gap: 20px;
     background: red;
 }
+datalist{
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+    color: var(--grey);
+}
+.pricerange{
+    width: 100%;
+}
