@@ -1,7 +1,9 @@
 import React from 'react';
 import './filter.css';
+import { useFilter } from '../../context/filterContext';
 
 export default function Filter() {
+    const { state, dispatch } = useFilter();
     return (
         <div>
             <div class="container-filters">
@@ -47,11 +49,11 @@ export default function Filter() {
 
                 <h3 class="bold">Sort by</h3>
                 <div>
-                    <input type="radio" id="low-high" name="sortby" />
+                    <input onClick={(e) => { dispatch({ type: "SORT_BY_PRICE", payload: e.target.id }) }} type="radio" id="low-high" name="sortby" />
                     <label for="low-high">Price - Low to High</label>
                 </div>
                 <div>
-                    <input type="radio" id="high-low" name="sortby" />
+                    <input onClick={(e) => { dispatch({ type: "SORT_BY_PRICE", payload: e.target.id }) }} type="radio" id="high-low" name="sortby" />
                     <label for="high-low">Price - High to Low</label>
                 </div>
             </div>
