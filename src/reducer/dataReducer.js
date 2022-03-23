@@ -15,7 +15,6 @@ export const dataReducer = (state, action) => {
         case "SORT_BY_RATING":
             return { ...state, rating: action.payload }
         case "FILTER_BY_PRICE":
-            console.log("pl: ", action.payload);
             return { ...state, priceLimit: action.payload }
         case "ADD_FILTER_BY_CATEGORY":
             return { ...state, category: [...state.category, action.payload] }
