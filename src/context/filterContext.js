@@ -20,7 +20,7 @@ export const FilterProvider = ({ children }) => {
         })();
     }, [])
     return (
-        <FilterContext.Provider value={{ state }}>
+        <FilterContext.Provider value={{ state, dispatch }}>
             {children}
         </FilterContext.Provider>
     )
