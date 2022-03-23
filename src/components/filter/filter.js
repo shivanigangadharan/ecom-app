@@ -8,12 +8,9 @@ export default function Filter() {
 
     const { state, dispatch } = useFilter();
     const toggleCheckbox = (e) => {
-        if (e.checked) {
-            dispatch({ type: "ADD_FILTER_BY_CATEGORY", payload: e.value })
-        }
-        else {
+        e.checked ?
+            dispatch({ type: "ADD_FILTER_BY_CATEGORY", payload: e.value }) :
             dispatch({ type: "REMOVE_FILTER_BY_CATEGORY", payload: e.value })
-        }
     }
 
     return (
