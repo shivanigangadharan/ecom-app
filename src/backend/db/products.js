@@ -30,7 +30,7 @@ export const products = [
     brand: "Little Kangaroo",
     price: 1200,
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
-    category: "Kids clothing",
+    category: "kids clothing",
     rating: 4.3,
   },
   {
@@ -57,7 +57,7 @@ export const products = [
     brand: "Powerpuff",
     price: 250,
     imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
-    category: "Kids clothing",
+    category: "kids clothing",
     rating: 3.9,
   },
   {

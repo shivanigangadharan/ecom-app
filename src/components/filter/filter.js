@@ -7,6 +7,15 @@ const STARS = [4, 3, 2, 1];
 export default function Filter() {
 
     const { state, dispatch } = useFilter();
+    const toggleCheckbox = (e) => {
+        console.log("e = ", e.checked);
+        if (e.checked) {
+            dispatch({ type: "ADD_FILTER_BY_CATEGORY", payload: e.value })
+        }
+        else {
+            dispatch({ type: "REMOVE_FILTER_BY_CATEGORY", payload: e.value })
+        }
+    }
 
     return (
         <div>
@@ -26,16 +35,16 @@ export default function Filter() {
                 <h3 class="bold">Category</h3>
                 <div class="cateory">
                     <div>
-                        <input onClick={(e) => { dispatch({ type: "FILTER_BY_CATEGORY", payload: e.target.value }) }} class="checkbox" value="womens clothing" type="checkbox" />
-                        <label for="womens-clothing">Womens clothing</label>
+                        <input onClick={(e) => { toggleCheckbox(e.target) }} class="checkbox" value="womens clothing" type="checkbox" />
+                        <label for="womens clothing">Womens clothing</label>
                     </div>
                     <div>
-                        <input onClick={(e) => { dispatch({ type: "FILTER_BY_CATEGORY", payload: e.target.value }) }} class="checkbox" value="mens clothing" type="checkbox" />
-                        <label for="mens-clothing">Mens clothing</label>
+                        <input onClick={(e) => { toggleCheckbox(e.target) }} class="checkbox" value="mens clothing" type="checkbox" />
+                        <label for="mens clothing">Mens clothing</label>
                     </div>
                     <div>
-                        <input class="checkbox" id="kids-clothing" type="checkbox" />
-                        <label for="kids-clothing">Kids clothing</label>
+                        <input onClick={(e) => { toggleCheckbox(e.target) }} class="checkbox" value="kids clothing" type="checkbox" />
+                        <label for="kids clothing">Kids clothing</label>
                     </div>
                 </div>
                 <h3 class="bold">Rating</h3>
