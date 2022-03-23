@@ -3,7 +3,7 @@ import './productList.css';
 import Filter from '../../components/filter/filter';
 import ProductCard from '../../components/productCard/productCard';
 import { products } from '../../backend/db/products';
-import { useFilter, FilterProvider } from '../../context/filterContext';
+import { useFilter } from '../../context/filterContext';
 import { sortData, ratingData, priceFilter, categoryFilter } from '../../services/filterFunctions';
 
 export default function ProductList() {
@@ -17,12 +17,12 @@ export default function ProductList() {
     return (
         <div>
             <Filter />
-            <div class="products-page">
-                <span class="bold">Showing all products</span>
+            <div className="products-page">
+                <span className="bold">Showing all products</span>
                 ({categoryFiltered.length} products)
-                <div class="products-grid">
+                <div className="products-grid">
                     {categoryFiltered.map((product) => {
-                        return <ProductCard product={product} />
+                        return <ProductCard product={product} key={product.id} />
                     })}
                 </div>
 

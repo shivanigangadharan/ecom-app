@@ -6,31 +6,31 @@ export default function Signup() {
     return (
         <div>
 
-            <div class="page-container">
+            <div className="page-container">
 
-                <div class="container-login">
-                    <h2 class="heading">Sign up</h2>
+                <div className="container-login">
+                    <h2 className="heading">Sign up</h2>
                     <form>
                         <div>
-                            <label class="label">Email address</label>
+                            <label className="label">Email address</label>
                             <br />
-                            <input class="text-input" type="email" placeholder="adarshbalika@gmail.com" />
+                            <input className="text-input" type="email" placeholder="adarshbalika@gmail.com" />
                         </div>
                         <div>
-                            <label class="label">Password</label>
+                            <label className="label">Password</label>
                             <br />
-                            <input class="text-input" type="password" placeholder="***********" />
+                            <input className="text-input" type="password" placeholder="***********" />
                         </div>
-                        <div class="remember-me">
+                        <div className="remember-me">
                             <div>
                                 <input type="checkbox" /> I accept all terms and conditions
             </div>
                         </div>
-                        <button class="btn login">Create new account</button>
-                        <div class="create">
+                        <button className="btn login">Create new account</button>
+                        <div className="create">
                             <Link to="/login">
                                 Already have an account
-                <i class="fa-solid fa-chevron-right"></i>
+                <i className="fa-solid fa-chevron-right"></i>
                             </Link>
                         </div>
                     </form>
