@@ -4,7 +4,7 @@ import Filter from '../../components/filter/filter';
 import ProductCard from '../../components/productCard/productCard';
 import { products } from '../../backend/db/products';
 import { useFilter, FilterProvider } from '../../context/filterContext';
-import { sortData, ratingData, priceFilter, categoryFilter } from '../../services/sortData';
+import { sortData, ratingData, priceFilter, categoryFilter } from '../../services/filterFunctions';
 
 export default function ProductList() {
 
