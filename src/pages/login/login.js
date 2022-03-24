@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
 
 export default function Login() {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const { LoginUser } = useAuth();
+    const handleLogin = (e) => {
+        e.preventDefault();
+        LoginUser(email, password);
+    }
     return (
         <div>
             <div className="page-container">
@@ -13,12 +21,12 @@ export default function Login() {
                         <div>
                             <label className="label">Email address</label>
                             <br />
-                            <input className="text-input" type="email" placeholder="adarshbalika@gmail.com" />
+                            <input onChange={e => setEmail(e.target.value)} className="text-input" type="email" placeholder="adarshbalika@gmail.com" />
                         </div>
                         <div>
                             <label className="label">Password</label>
                             <br />
-                            <input className="text-input" type="password" placeholder="***********" />
+                            <input onChange={e => setPassword(e.target.value)} className="text-input" type="password" placeholder="***********" />
                         </div>
                         <div className="remember-me">
                             <div>
@@ -26,7 +34,7 @@ export default function Login() {
             </div>
                             <a href="#">Forgot your password?</a>
                         </div>
-                        <button className="btn login">Login</button>
+                        <button onClick={e => handleLogin(e)} className="btn login">Login</button>
                         <div className="create">
                             <Link to="/signup">
                                 Create new account
