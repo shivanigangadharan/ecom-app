@@ -8,7 +8,7 @@ export const useAuth = () => useContext(AuthContext);
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [error, setError] = useState({ errorExists: false, errorMessage: "" })
-
+    const [encodedToken, setEncodedToken] = useState(localStorage.getItem("token"));
     const SignupUser = async (email, password) => {
         console.log("Posting sign up data");
         setError({
@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
             if (userResponse.statusText === "Created") {
                 localStorage.setItem("token", JSON.stringify(userResponse.data.encodedToken));
                 // console.log(localStorage.getItem("token"));
+                setEncodedToken(userResponse.data.encodedToken);
                 setUser(userResponse.data.createdUser);
                 return user;
             }
@@ -72,7 +73,7 @@ export const AuthProvider = ({ children }) => {
         }
     }
     return (
-        <AuthContext.Provider value={{ user, setUser, error, setError, SignupUser, LoginUser }}>
+        <AuthContext.Provider value={{ user, setUser, error, setError, SignupUser, LoginUser, encodedToken, setEncodedToken }}>
             {children}
         </AuthContext.Provider>
     )

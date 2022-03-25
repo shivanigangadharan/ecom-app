@@ -6,6 +6,7 @@
 }
 .nav-options{
     gap: 40px;
+    cursor: pointer;
 }
 .nav-options a{
     color: var(--darkgrey);

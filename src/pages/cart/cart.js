@@ -1,40 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './cart.css';
 import jacket from '../../assets/jacket.jpg';
+import CartCard from '../../components/cartCard/cartCard';
+import { useAuth } from '../../context/authContext';
+import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 export default function Cart() {
+    const { user, encodedToken } = useAuth();
+    const [cartdata, setCartdata] = useState([]);
+    const navigate = useNavigate();
+    useEffect(async () => {
+        if (user !== null) {
+            const res = await axios.get("/api/user/cart", {
+                headers: {
+                    authorization: encodedToken
+                }
+            });
+            console.log(res.data.cart);
+            setCartdata(res.data.cart);
+        }
+        else {
+            console.log("Navigating to login page.");
+            navigate("/login");
+            alert("Please login first to see your cart.");
+        }
+
+    }, [])
     return (
         <div>
             <div className="cart-page">
-                <h2 className="bold center"> MY CART (2) </h2>
+                <h2 className="bold center"> MY CART ({cartdata.length}) </h2>
                 <div className="cart-content">
-
-                    <div className="horizontal-card">
-                        <img className="img" src={jacket} />
-                        <div className="card-details">
-                            <h3>Women premium jacket</h3>
-                            <span className="bold">Rs 2000</span>
-                            <span className="oldprice">Rs 3999</span>
-                            <h3 className="grey-text bold">50% off</h3>
-                            <div className="quantity">
-                                <label>Quantity:</label>
-                                <div className="flex">
-                                    <button className="plusminus">+</button>
-                                    <input className="qty-ip" type="number" />
-                                    <button className="plusminus">-</button>
-                                </div>
-                            </div>
-                            <button className="btn move-btn remove">Remove from cart</button>
-                            <button className="btn remove">Move to wishlist</button>
-
+                    {
+                        cartdata.length === 0 ? <div>
+                            <h1>No items</h1>
                         </div>
-                    </div>
+                            :
+                            cartdata.map((item) => {
+                                return (
+                                    <CartCard cartitem={item} key={item.id} />
+                                )
+                            })
+                    }
 
                     <div className="price-details">
                         <h4 className="bold">PRICE DETAILS</h4>
                         <hr />
                         <div className="flex-between">
-                            <span>Price (2 items) </span>
+                            <span>Price ({cartdata.length} items) </span>
                             <span className="text-right">2000 </span>
                         </div>
                         <div className="flex-between">

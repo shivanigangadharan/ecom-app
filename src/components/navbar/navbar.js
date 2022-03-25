@@ -5,7 +5,7 @@ import { useAuth } from '../../context/authContext';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
-    const { user, setUser } = useAuth();
+    const { user, setUser, setEncodedToken } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
         if (user !== null) {
