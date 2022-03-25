@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
 import './login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 
 export default function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const { LoginUser } = useAuth();
-    const handleLogin = (e) => {
+    // useEffect(()=>{
+    //     set
+    // })
+    const handleLogin = async (e) => {
         e.preventDefault();
-        LoginUser(email, password);
+
+        if (email === undefined || password === undefined) {
+            alert("Please enter email and password.");
+        }
+        else {
+            const LoginResponse = await LoginUser(email, password);
+            if (LoginResponse) {
+                console.log("return after login : ", LoginUser(email, password));
+                navigate("/");
+            } else {
+                console.log("Something is not right.");
+                alert("Invalid credentials, please sign up.");
+            }
+        }
+
     }
+    const { user } = useAuth();
+    const navigate = useNavigate();
     return (
         <div>
             <div className="page-container">

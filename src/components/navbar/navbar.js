@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/authContext';
 
 export default function Navbar() {
+    const [loginBtn, setLoginBtn] = useState();
+    const { user, setUser } = useAuth();
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (user !== null) {
+            setLoginBtn("Logout");
+            // console.log("user at navbar : ", user)
+        }
+        else {
+            setLoginBtn("Login");
+        }
+    })
+    const handleLoginClick = () => {
+        if (loginBtn == "Logout") {
+            setUser(null);
+            console.log("Logged out successfuly, user = ", user);
+            navigate("/");
+        }
+        else {
+            navigate("/login");
+        }
+    }
     return (
         <div>
             <div className="container-nav">
@@ -14,7 +37,7 @@ export default function Navbar() {
                     <i className="search-icon fas fa-search" aria-hidden="true"></i>
                 </div>
                 <div className="nav-options">
-                    <Link className="nav-item" to="/login"> Login </Link>
+                    <span onClick={handleLoginClick}> {loginBtn} </span>
                     <Link to="/wishlist">
                         <i className="nav-icon fa-regular fa-heart badge-icon">
                             <div className="badge-number">
