@@ -17,7 +17,7 @@ export default function Signup() {
             SignupUser(email, password);
         }
         else {
-            console.log("Please accept terms and conditions.");
+            alert("Please accept terms and conditions.");
         }
     }
     return (

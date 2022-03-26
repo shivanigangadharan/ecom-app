@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
     const [error, setError] = useState({ errorExists: false, errorMessage: "" })
 
     const SignupUser = async (email, password) => {
-        console.log("Posting sign up data");
         setError({
             errorExists: false,
             errorMessage: ""
@@ -25,7 +24,6 @@ export const AuthProvider = ({ children }) => {
             }));
             if (userResponse.statusText === "Created") {
                 localStorage.setItem("token", JSON.stringify(userResponse.data.encodedToken));
-                console.log(localStorage.getItem("token"));
                 setUser(userResponse.data.createdUser);
             }
         }
@@ -39,7 +37,6 @@ export const AuthProvider = ({ children }) => {
     }
 
     const LoginUser = async (email, password) => {
-        console.log("Posting Log in data");
         setError({
             errorExists: false,
             errorMessage: ""
@@ -50,11 +47,9 @@ export const AuthProvider = ({ children }) => {
                 password: password,
             });
             if (userResponse.statusText === "OK") {
-                console.log("Login successfull : ", userResponse);
                 setUser(userResponse.data.foundUser);
             }
             else {
-                console.log("Incorrect credentials.")
                 setError({
                     errorExists: true,
                     errorMessage: "Invalid credentials."
