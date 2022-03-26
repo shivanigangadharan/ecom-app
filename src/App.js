@@ -8,6 +8,7 @@ import Navbar from './components/navbar/navbar';
 import Cart from './pages/cart/cart';
 import Wishlist from './pages/wishlist/wishlist';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Mockman from 'mockman-js';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/productlist" element={<ProductList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/mockman" element={<Mockman />} />
+
         </Routes>
       </BrowserRouter>
     </div>
