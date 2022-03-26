@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router';
 
 export default function ProductCard({ product }) {
     const { title, author, brand, imgurl, price, rating } = product;
-    const { user, encodedToken } = useAuth();
+    const { user, setUser, encodedToken } = useAuth();
+    const [added, setAdded] = useState(false);
     const navigate = useNavigate();
     const handleAddToCart = async () => {
         if (user) {
@@ -14,7 +15,11 @@ export default function ProductCard({ product }) {
                     authorization: encodedToken
                 }
             })
-            console.log("posting to cart", res);
+            setAdded(true);
+            setUser({ ...user, cart: [...user.cart, { product }] })
+            // console.log("posting to cart", res);
+            console.log("user", user);
+
         }
         else {
             navigate("/login");
@@ -32,7 +37,7 @@ export default function ProductCard({ product }) {
                     <b>Rs. {price}</b>
 
                 </div>
-                <button onClick={handleAddToCart} className="btn login cart">Add to cart</button>
+                <button onClick={handleAddToCart} className={added ? "btn move-btn cart" : "btn login cart"}>{added ? "Added" : "Add to cart"}</button>
             </div>
         </div>
     )

@@ -26,24 +26,27 @@ export default function Cart() {
             alert("Please login first to see your cart.");
         }
 
-    }, [])
+    }, [user])
     return (
         <div>
             <div className="cart-page">
                 <h2 className="bold center"> MY CART ({cartdata.length}) </h2>
                 <div className="cart-content">
-                    {
-                        cartdata.length === 0 ? <div>
-                            <h1>No items</h1>
-                        </div>
-                            :
-                            cartdata.map((item) => {
-                                return (
-                                    <CartCard cartitem={item} key={item.id} />
-                                )
-                            })
-                    }
+                    <div className="cards-container">
+                        {
+                            cartdata.length === 0 ?
+                                <div>
+                                    <h1>No items</h1>
+                                </div>
+                                :
+                                cartdata.map((item) => {
+                                    return (
+                                        <CartCard cartitem={item} key={item.id} />
 
+                                    )
+                                })
+                        }
+                    </div>
                     <div className="price-details">
                         <h4 className="bold">PRICE DETAILS</h4>
                         <hr />
