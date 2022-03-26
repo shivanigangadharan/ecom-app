@@ -38,7 +38,7 @@ export default function Wishlist() {
                             :
                             wishlistdata.map((item) => {
                                 return (
-                                    <WishlistCard wishlistitem={item} key={item.id} />
+                                    <WishlistCard product={item} key={item.id} />
                                 )
                             })
                     }

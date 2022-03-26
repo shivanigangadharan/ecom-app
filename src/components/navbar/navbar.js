@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
+import axios from 'axios';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
     const [cartnumber, setCartNumber] = useState(0);
     const [wishlistnumber, setWishlistNumber] = useState(0);
-    const { user, setUser, setEncodedToken } = useAuth();
+    const { user, setUser, encodedToken, setEncodedToken } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
         if (user !== null) {
@@ -18,8 +19,10 @@ export default function Navbar() {
         }
         else {
             setLoginBtn("Login");
+            setWishlistNumber(0);
+            setCartNumber(0);
         }
-    })
+    }, [user])
     const handleLoginClick = () => {
         if (loginBtn == "Logout") {
             setUser(null);

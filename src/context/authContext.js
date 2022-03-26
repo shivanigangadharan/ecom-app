@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
             errorMessage: ""
         })
         try {
-
             const userResponse = await axios.post(`/api/auth/signup`, JSON.stringify({
                 email: email,
                 password: password,
