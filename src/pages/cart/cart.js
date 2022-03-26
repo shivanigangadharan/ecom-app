@@ -42,7 +42,6 @@ export default function Cart() {
                                 cartdata.map((item) => {
                                     return (
                                         <CartCard cartitem={item} key={item.id} />
-
                                     )
                                 })
                         }

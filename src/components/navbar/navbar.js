@@ -5,11 +5,15 @@ import { useAuth } from '../../context/authContext';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
+    const [cartnumber, setCartNumber] = useState(0);
+    const [wishlistnumber, setWishlistNumber] = useState(0);
     const { user, setUser, setEncodedToken } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
         if (user !== null) {
             setLoginBtn("Logout");
+            setCartNumber(user.cart.length);
+            setWishlistNumber(user.wishlist.length);
             // console.log("user at navbar : ", user)
         }
         else {
@@ -41,15 +45,15 @@ export default function Navbar() {
                     <Link to="/wishlist">
                         <i className="nav-icon fa-regular fa-heart badge-icon">
                             <div className="badge-number">
-                                6
-                    </div>
+                                {wishlistnumber}
+                            </div>
                         </i>
                     </Link>
                     <Link to="/cart">
                         <i className="nav-icon fas fa-shopping-cart badge-icon" aria-hidden="true">
                             <div className="badge-number">
-                                1
-                    </div>
+                                {cartnumber}
+                            </div>
                         </i>
                     </Link>
                 </div>

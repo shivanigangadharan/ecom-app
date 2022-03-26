@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router';
+import './productCard.css';
 
 export default function ProductCard({ product }) {
     const { title, author, brand, imgurl, price, rating } = product;
@@ -24,7 +25,19 @@ export default function ProductCard({ product }) {
         else {
             navigate("/login");
         }
-
+    }
+    const handleAddToWishlist = async () => {
+        if (user) {
+            const res = await axios.post("/api/user/wishlist", { product }, {
+                headers: {
+                    authorization: encodedToken
+                }
+            })
+            setUser({ ...user, wishlist: [...user.wishlist, { product }] });
+        }
+        else {
+            navigate("/login");
+        }
     }
     return (
         <div>
@@ -35,10 +48,13 @@ export default function ProductCard({ product }) {
                     <p className="grey-text">{brand} </p>
                     <p> Rating : {rating} </p>
                     <b>Rs. {price}</b>
-
                 </div>
                 <button onClick={handleAddToCart} className={added ? "btn move-btn cart" : "btn login cart"}>{added ? "Added" : "Add to cart"}</button>
+                <div onClick={handleAddToWishlist} className="wishlist-btn">
+                    <i className="fa-solid fa-heart"></i>
+                </div>
             </div>
+
         </div>
     )
 }

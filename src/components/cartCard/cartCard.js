@@ -18,7 +18,6 @@ export default function CartCard({ cartitem }) {
         });
         console.log("cart removing response: ", res.data.cart);
         setUser({ ...user, cart: res.data.cart });
-
     }
     return (
         <div>
