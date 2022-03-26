@@ -26,7 +26,7 @@ export default function Signup() {
 
                 }
             } else {
-                console.log("Please accept terms and conditions.");
+            alert("Please accept terms and conditions.");
             }
         }
 
