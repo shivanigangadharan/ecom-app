@@ -3,7 +3,6 @@ import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 
 export default function PriceCard({ cartdata }) {
-    console.log("Cart data in price card :", cartdata);
     const { user, encodedToken } = useAuth();
     const [totalprice, setTotalprice] = useState(0);
     useEffect(async () => {

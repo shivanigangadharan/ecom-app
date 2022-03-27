@@ -16,11 +16,11 @@ export default function WishlistCard({ product }) {
         });
         setCartItems(res.data.cart);
         if (cartItems.some(item => item._id === _id)) {
-            setAdded(true)
+            setAdded(true);
         }
 
 
-    }, [])
+    }, [cartItems])
 
     const handleAddToCart = async () => {
         if (!cartItems.some(item => item._id === _id)) {
