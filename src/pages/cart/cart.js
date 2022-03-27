@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './cart.css';
-import jacket from '../../assets/jacket.jpg';
 import CartCard from '../../components/cartCard/cartCard';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
