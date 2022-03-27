@@ -11,7 +11,7 @@ export default function Wishlist() {
     const navigate = useNavigate();
     const [wishlistdata, setWishlistData] = useState([]);
     useEffect(async () => {
-        if (user) {
+        if (user !== null) {
             const res = await axios.get("/api/user/wishlist", {
                 headers: {
                     authorization: encodedToken
@@ -24,7 +24,7 @@ export default function Wishlist() {
             navigate("/login");
             alert("Please login first to see your wishlist.");
         }
-    }, [])
+    }, [user])
     return (
         <div>
             <div className="wishlist-page">

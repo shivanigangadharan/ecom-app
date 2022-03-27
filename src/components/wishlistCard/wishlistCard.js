@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../../context/authContext';
 
 export default function WishlistCard({ product }) {
-    const { title, author, brand, imgurl, price, rating, _id, id } = product;
+    const { title, author, brand, imgurl, price, rating, _id } = product;
     const { encodedToken, user, setUser } = useAuth();
     const [added, setAdded] = useState(false);
 
@@ -19,6 +19,15 @@ export default function WishlistCard({ product }) {
         }
     }
 
+    const handleRemove = async () => {
+        const res = await axios.delete(`/api/user/wishlist/${_id}`, {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+        setUser({ ...user, wishlist: res.data.wishlist });
+    }
+
     return (
         <div>
             <div className="container-card">
@@ -30,6 +39,7 @@ export default function WishlistCard({ product }) {
                     <b>Rs. {price}</b>
                 </div>
                 <button onClick={handleAddToCart} className={added ? "btn move-btn cart" : "btn login cart"}>{added ? "Added" : "Add to cart"}</button>
+                <button onClick={handleRemove} className="btn move-btn cart">Remove from wishlist</button>
             </div>
         </div>
     )
