@@ -20,7 +20,7 @@ export default function WishlistCard({ product }) {
         }
 
 
-    }, [cartItems])
+    }, [user])
 
     const handleAddToCart = async () => {
         if (!cartItems.some(item => item._id === _id)) {

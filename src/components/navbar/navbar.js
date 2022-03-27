@@ -21,7 +21,7 @@ export default function Navbar() {
             setWishlistNumber(0);
             setCartNumber(0);
         }
-    }, [user])
+    }, [user]);
     const handleLoginClick = () => {
         if (loginBtn == "Logout") {
             setUser(null);

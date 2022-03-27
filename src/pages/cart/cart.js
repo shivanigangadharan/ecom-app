@@ -20,7 +20,7 @@ export default function Cart() {
             });
             const original = res.data.cart.filter((ele, index, arr) => arr.findIndex(e => (e._id === ele._id)) === index);
             setCartdata(original);
-            setUser({ ...user, cart: original });
+            setUser({ ...user, cart: res.data.cart.filter((ele, index, arr) => arr.findIndex(e => (e._id === ele._id)) === index) });
         }
         else {
             navigate("/login");
@@ -43,7 +43,7 @@ export default function Cart() {
                                 :
                                 cartdata.map((item) => {
                                     return (
-                                        <CartCard cartitem={item} key={item.id} />
+                                        <CartCard product={item} key={item.id} />
                                     )
                                 })
                         }
