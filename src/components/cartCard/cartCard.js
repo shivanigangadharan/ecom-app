@@ -14,6 +14,14 @@ export default function CartCard({ cartitem }) {
         });
         setUser({ ...user, cart: res.data.cart });
     }
+    const moveToWishlist = async () => {
+        const res = await axios.post("/api/user/wishlist", { cartitem }, {
+            headers: {
+                authorization: encodedToken
+            }
+        })
+        setUser({ ...user, wishlist: [...user.wishlist, cartitem] })
+    }
     return (
         <div>
             <div className="horizontal-card">
@@ -30,7 +38,7 @@ export default function CartCard({ cartitem }) {
                         </div>
                     </div>
                     <button onClick={handleRemove} className="btn move-btn remove">Remove from cart</button>
-                    <button className="btn remove">Move to wishlist</button>
+                    <button onClick={moveToWishlist} className="btn remove">Move to wishlist</button>
                 </div>
             </div>
         </div>
