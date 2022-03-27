@@ -1,12 +1,19 @@
 .cart-page{
     background: var(--lightergrey);
     padding: 8rem 0px;
-    height: 100vh;
+    /* height: 100vh; */
 }
 .cart-content{
     display: flex;
     gap: 1.25rem;
     justify-content: center;
+}
+.cards-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh;
+    overflow-y: scroll;
 }
 .flex-between{
     display: flex;
@@ -26,6 +33,7 @@
     width: clamp(12.5rem, 40vw, 18.75rem);
     padding: 2rem;
     background: var(--white);
+    max-height: fit-content;
 }
 .text-right{
     text-align: right;
