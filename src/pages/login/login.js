@@ -19,10 +19,8 @@ export default function Login() {
         else {
             const LoginResponse = await LoginUser(email, password);
             if (LoginResponse) {
-                console.log("return after login : ", LoginUser(email, password));
                 navigate("/");
             } else {
-                console.log("Something is not right.");
                 alert("Invalid credentials, please sign up.");
             }
         }

@@ -18,11 +18,9 @@ export default function Cart() {
                     authorization: encodedToken
                 }
             });
-            console.log(res.data.cart);
             setCartdata(res.data.cart);
         }
         else {
-            console.log("Navigating to login page.");
             navigate("/login");
             alert("Please login first to see your cart.");
         }

@@ -15,7 +15,6 @@ export default function Navbar() {
             setLoginBtn("Logout");
             setCartNumber(user.cart.length);
             setWishlistNumber(user.wishlist.length);
-            // console.log("user at navbar : ", user)
         }
         else {
             setLoginBtn("Login");
@@ -26,7 +25,6 @@ export default function Navbar() {
     const handleLoginClick = () => {
         if (loginBtn == "Logout") {
             setUser(null);
-            console.log("Logged out successfuly, user = ", user);
             navigate("/");
         }
         else {

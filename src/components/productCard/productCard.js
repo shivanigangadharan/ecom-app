@@ -18,9 +18,6 @@ export default function ProductCard({ product }) {
             })
             setAdded(true);
             setUser({ ...user, cart: [...user.cart, { product }] })
-            // console.log("posting to cart", res);
-            console.log("user", user);
-
         }
         else {
             navigate("/login");
