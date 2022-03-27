@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './cart.css';
-import jacket from '../../assets/jacket.jpg';
 import CartCard from '../../components/cartCard/cartCard';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
@@ -17,11 +16,9 @@ export default function Cart() {
                     authorization: encodedToken
                 }
             });
-            console.log(res.data.cart);
             setCartdata(res.data.cart);
         }
         else {
-            console.log("Navigating to login page.");
             navigate("/login");
             alert("Please login first to see your cart.");
         }

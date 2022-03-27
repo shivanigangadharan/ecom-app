@@ -7,22 +7,17 @@ export default function Login() {
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const { LoginUser } = useAuth();
-    // useEffect(()=>{
-    //     set
-    // })
+
     const handleLogin = async (e) => {
         e.preventDefault();
-
         if (email === undefined || password === undefined) {
             alert("Please enter email and password.");
         }
         else {
             const LoginResponse = await LoginUser(email, password);
             if (LoginResponse) {
-                console.log("return after login : ", LoginUser(email, password));
                 navigate("/");
             } else {
-                console.log("Something is not right.");
                 alert("Invalid credentials, please sign up.");
             }
         }

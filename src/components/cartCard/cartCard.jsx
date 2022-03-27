@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import jacket from '../../assets/jacket.jpg';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 
 export default function CartCard({ cartitem }) {
     const { title, author, brand, imgurl, price, rating, _id, id } = cartitem;
-    // console.log("cart", cartitem);
     const [qty, setQty] = useState(1);
     const { encodedToken, user, setUser } = useAuth();
-    console.log("user in cart card : ", user);
     const handleRemove = async () => {
-        console.log("user in cart card after remove : ", user);
         const res = await axios.delete(`/api/user/cart/${_id}`, {
             headers: {
                 authorization: encodedToken
             }
         });
-        console.log("cart removing response: ", res.data.cart);
         setUser({ ...user, cart: res.data.cart });
 
     }
