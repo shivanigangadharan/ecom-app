@@ -4,6 +4,7 @@ import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import WishlistCard from '../../components/wishlistCard/wishlistCard';
+import { Link } from 'react-router-dom';
 
 export default function Wishlist() {
     const { user, setUser, encodedToken } = useAuth();
@@ -33,7 +34,8 @@ export default function Wishlist() {
                     {
                         wishlistdata.length === 0 ?
                             <div>
-                                <h1>No items</h1>
+                                <h1>No items in wishlist</h1>
+                                <Link to="/productlist"> <button className="btn linked"> View more products </button></Link>
                             </div>
                             :
                             wishlistdata.map((item) => {
