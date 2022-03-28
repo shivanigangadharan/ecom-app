@@ -27,7 +27,7 @@ export default function Cart() {
             alert("Please login first to see your cart.");
         }
 
-    }, [user])
+    }, [user ? user.cart : user])
     return (
         <div>
             <div className="cart-page">

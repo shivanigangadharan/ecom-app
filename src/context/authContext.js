@@ -45,6 +45,9 @@ export const AuthProvider = ({ children }) => {
             });
             if (userResponse.statusText === "OK") {
                 setUser(userResponse.data.foundUser);
+                setEncodedToken(userResponse.data.encodedToken);
+                localStorage.setItem("token", JSON.stringify(userResponse.data.encodedToken));
+                console.log(userResponse)
                 return true;
             }
             else {

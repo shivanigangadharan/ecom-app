@@ -6,30 +6,24 @@ import axios from 'axios';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
-    const [cartnumber, setCartNumber] = useState(0);
+    const [cartnumber, setCartNumber] = useState();
     const [wishlistnumber, setWishlistNumber] = useState(0);
     const { user, setUser, encodedToken, setEncodedToken } = useAuth();
     const navigate = useNavigate();
-    useEffect(() => {
-        if (user !== null) {
-            setLoginBtn("Logout");
-            setCartNumber(user.cart.length);
-            setWishlistNumber(user.wishlist.length);
-        }
-        else {
-            setLoginBtn("Login");
-            setWishlistNumber(0);
-            setCartNumber(0);
-        }
-    }, [user]);
-    const handleLoginClick = () => {
-        if (loginBtn == "Logout") {
-            setUser(null);
-            navigate("/");
-        }
-        else {
-            navigate("/login");
-        }
+
+    useEffect(async () => {
+        const res = await axios.get("/api/user/wishlist", {
+            headers: {
+                authorization: encodedToken
+            }
+        });
+        console.log(res.data.wishlist.length);
+        setWishlistNumber(res.data.wishlist.length);
+    })
+
+    const handleLogout = () => {
+        setUser(null);
+        navigate("/");
     }
     return (
         <div>
@@ -42,19 +36,27 @@ export default function Navbar() {
                     <i className="search-icon fas fa-search" aria-hidden="true"></i>
                 </div>
                 <div className="nav-options">
-                    <span onClick={handleLoginClick}> {loginBtn} </span>
+                    <span onClick={() => { user ? handleLogout() : navigate("/login") }}> {user ? "Logout" : "Login"} </span>
                     <Link to="/wishlist">
                         <i className="nav-icon fa-regular fa-heart badge-icon">
-                            <div className="badge-number">
-                                {wishlistnumber}
-                            </div>
+                            {
+                                user !== null ? <div className="badge-number">
+                                    {wishlistnumber}
+                                </div> :
+                                    null
+                            }
+
                         </i>
                     </Link>
                     <Link to="/cart">
                         <i className="nav-icon fas fa-shopping-cart badge-icon" aria-hidden="true">
-                            <div className="badge-number">
-                                {cartnumber}
-                            </div>
+                            {
+                                user ? <div className="badge-number">
+                                    {user.cart.length}
+
+                                </div> :
+                                    null
+                            }
                         </i>
                     </Link>
                 </div>

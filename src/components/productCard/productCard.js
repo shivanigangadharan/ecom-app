@@ -22,6 +22,7 @@ export default function ProductCard({ product }) {
     }, [])
 
     const handleAddToCart = async () => {
+        console.log("user at prod list:", user);
         if (user) {
             const res = await axios.post("/api/user/cart", { product }, {
                 headers: {
@@ -29,6 +30,7 @@ export default function ProductCard({ product }) {
                 }
             })
             setAdded(true);
+            console.log(res);
             setUser({ ...user, cart: [...user.cart, { product }] })
         }
         else {

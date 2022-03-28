@@ -15,28 +15,30 @@ export default function CartCard({ product }) {
     }
     const moveToWishlist = async () => {
         if (user.wishlist.length > 0) {
-            if (!user.wishlist.some(item => item.product._id === _id)) {
+            if (!user.wishlist.some(item => item._id === _id)) {
                 //if not in wishlist
-                const res = await axios.post(`/api/user/wishlist`, { product }, {
+                const res = await axios.post("/api/user/wishlist", { product }, {
                     headers: {
                         authorization: encodedToken
                     }
                 });
                 console.log(res.data, "...", product);
-                setUser({ ...user, wishlist: [...user.wishlist, product] })
+                setUser({ ...user, wishlist: res.data.wishlist });
+                handleRemove();
             }
         } else {
-            const res = await axios.post(`/api/user/wishlist`, { product }, {
+            const res = await axios.post("/api/user/wishlist", { product }, {
                 headers: {
                     authorization: encodedToken
                 }
             });
             console.log(res.data, "...", product);
-            setUser({ ...user, wishlist: [...user.wishlist, product] })
+            setUser({ ...user, wishlist: res.data.wishlist });
+            handleRemove();
         }
 
+        // setUser({ ...user, wishlist: res.data.wishlist });
         console.log(user.wishlist);
-
 
     }
     const changeQty = async (e) => {

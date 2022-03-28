@@ -24,7 +24,7 @@ export default function Wishlist() {
             navigate("/login");
             alert("Please login first to see your wishlist.");
         }
-    }, [user])
+    }, [user ? user.wishlist : user])
     return (
         <div>
             <div className="wishlist-page">
