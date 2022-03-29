@@ -7,6 +7,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.category-img{
+    width: 400px;
+}
 .brandname{
     color: var(--darkgrey);
 }
