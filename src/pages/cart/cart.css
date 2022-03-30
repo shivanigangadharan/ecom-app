@@ -86,3 +86,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+.empty-cart{
+    width: 300px;
+    text-align: center;
+}

@@ -1,53 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './wishlist.css';
+import { useAuth } from '../../context/authContext';
+import { useNavigate } from 'react-router';
+import axios from 'axios';
+import WishlistCard from '../../components/wishlistCard/wishlistCard';
+import { Link } from 'react-router-dom';
 
 export default function Wishlist() {
+    const { user, setUser, encodedToken } = useAuth();
+    const navigate = useNavigate();
+    const [wishlistdata, setWishlistData] = useState([]);
+    useEffect(async () => {
+        if (user) {
+            const res = await axios.get("/api/user/wishlist", {
+                headers: {
+                    authorization: encodedToken
+                }
+            });
+            console.log("res data: ", res.data.wishlist);
+            setWishlistData(res.data.wishlist);
+        }
+        else {
+            navigate("/login");
+            alert("Please login first to see your wishlist.");
+        }
+    }, [])
     return (
         <div>
             <div className="wishlist-page">
                 <h2 className="bold"> My wishlist</h2>
 
                 <div className="wishlist-grid">
-                    <div className="container-card">
-                        <img alt="Sample image" className="item-img" src="../../assets/jacket.jpg" />
-                        <div className="content center">
-                            <h3 className="item-name">Women's premium jacket </h3>
-                            <b>Rs. 2000</b>
-                        </div>
-                        <button className="btn move-btn cart">Move to cart</button>
-                    </div>
-                    <div className="container-card">
-                        <img alt="Sample image" className="item-img" src="../../assets/jacket.jpg" />
-                        <div className="content center">
-                            <h3 className="item-name">Women's premium jacket </h3>
-                            <b>Rs. 2000</b>
-                        </div>
-                        <button className="btn move-btn cart">Move to cart</button>
-                    </div>
-                    <div className="container-card">
-                        <img alt="Sample image" className="item-img" src="../../assets/jacket.jpg" />
-                        <div className="content center">
-                            <h3 className="item-name">Women's premium jacket </h3>
-                            <b>Rs. 2000</b>
-                        </div>
-                        <button className="btn move-btn cart">Move to cart</button>
-                    </div>
-                    <div className="container-card">
-                        <img alt="Sample image" className="item-img" src="../../assets/jacket.jpg" />
-                        <div className="content center">
-                            <h3 className="item-name">Women's premium jacket </h3>
-                            <b>Rs. 2000</b>
-                        </div>
-                        <button className="btn move-btn cart">Move to cart</button>
-                    </div>
-                    <div className="container-card">
-                        <img alt="Sample image" className="item-img" src="../../assets/jacket.jpg" />
-                        <div className="content center">
-                            <h3 className="item-name">Women's premium jacket </h3>
-                            <b>Rs. 2000</b>
-                        </div>
-                        <button className="btn move-btn cart">Move to cart</button>
-                    </div>
+                    {
+                        wishlistdata.length === 0 ?
+                            <div>
+                                <h1>No items in wishlist</h1>
+                                <Link to="/productlist"> <button className="btn linked"> View more products </button></Link>
+                            </div>
+                            :
+                            wishlistdata.map((item) => {
+                                return (
+                                    <WishlistCard product={item} key={item.id} />
+                                )
+                            })
+                    }
                 </div>
             </div>
 

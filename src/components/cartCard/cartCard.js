@@ -13,7 +13,6 @@ export default function CartCard({ cartitem }) {
             }
         });
         setUser({ ...user, cart: res.data.cart });
-
     }
     return (
         <div>

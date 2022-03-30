@@ -1,41 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../context/authContext';
-import { useNavigate } from 'react-router';
-import './productCard.css';
 
-export default function ProductCard({ product }) {
-    const { title, author, brand, imgurl, price, rating } = product;
-    const { user, setUser, encodedToken } = useAuth();
+export default function WishlistCard({ product }) {
+    const { title, author, brand, imgurl, price, rating, _id, id } = product;
+    const { encodedToken, user, setUser } = useAuth();
     const [added, setAdded] = useState(false);
-    const navigate = useNavigate();
+
     const handleAddToCart = async () => {
-        if (user) {
+        if (!added) {
             const res = await axios.post("/api/user/cart", { product }, {
                 headers: {
                     authorization: encodedToken
                 }
             })
+            setUser({ ...user, cart: [...user.cart, { product }] });
             setAdded(true);
-            setUser({ ...user, cart: [...user.cart, { product }] })
-        }
-        else {
-            navigate("/login");
         }
     }
-    const handleAddToWishlist = async () => {
-        if (user) {
-            const res = await axios.post("/api/user/wishlist", { product }, {
-                headers: {
-                    authorization: encodedToken
-                }
-            })
-            setUser({ ...user, wishlist: [...user.wishlist, { product }] });
-        }
-        else {
-            navigate("/login");
-        }
-    }
+
     return (
         <div>
             <div className="container-card">
@@ -47,11 +30,7 @@ export default function ProductCard({ product }) {
                     <b>Rs. {price}</b>
                 </div>
                 <button onClick={handleAddToCart} className={added ? "btn move-btn cart" : "btn login cart"}>{added ? "Added" : "Add to cart"}</button>
-                <div onClick={handleAddToWishlist} className="wishlist-btn">
-                    <i className="fa-solid fa-heart"></i>
-                </div>
             </div>
-
         </div>
     )
 }

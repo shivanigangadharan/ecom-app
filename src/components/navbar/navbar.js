@@ -2,24 +2,29 @@ import React, { useState, useEffect } from 'react';
 import './navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
+import axios from 'axios';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
-    const { user, setUser, setEncodedToken } = useAuth();
+    const [cartnumber, setCartNumber] = useState(0);
+    const [wishlistnumber, setWishlistNumber] = useState(0);
+    const { user, setUser, encodedToken, setEncodedToken } = useAuth();
     const navigate = useNavigate();
     useEffect(() => {
         if (user !== null) {
             setLoginBtn("Logout");
-            // console.log("user at navbar : ", user)
+            setCartNumber(user.cart.length);
+            setWishlistNumber(user.wishlist.length);
         }
         else {
             setLoginBtn("Login");
+            setWishlistNumber(0);
+            setCartNumber(0);
         }
-    })
+    }, [user])
     const handleLoginClick = () => {
         if (loginBtn == "Logout") {
             setUser(null);
-            console.log("Logged out successfuly, user = ", user);
             navigate("/");
         }
         else {
@@ -41,15 +46,15 @@ export default function Navbar() {
                     <Link to="/wishlist">
                         <i className="nav-icon fa-regular fa-heart badge-icon">
                             <div className="badge-number">
-                                6
-                    </div>
+                                {wishlistnumber}
+                            </div>
                         </i>
                     </Link>
                     <Link to="/cart">
                         <i className="nav-icon fas fa-shopping-cart badge-icon" aria-hidden="true">
                             <div className="badge-number">
-                                1
-                    </div>
+                                {cartnumber}
+                            </div>
                         </i>
                     </Link>
                 </div>

@@ -19,14 +19,12 @@ export default function Signup() {
         }
         else {
             if (checkTerms) {
-                // console.log(email, password, user);
                 if (SignupUser(email, password) != null) {
-                    console.log("navigating after signup created : ", user);
                     navigate("/");
 
                 }
             } else {
-            alert("Please accept terms and conditions.");
+                alert("Please accept terms and conditions.");
             }
         }
 

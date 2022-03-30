@@ -4,6 +4,7 @@ import CartCard from '../../components/cartCard/cartCard';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
     const { user, encodedToken } = useAuth();
@@ -32,14 +33,14 @@ export default function Cart() {
                     <div className="cards-container">
                         {
                             cartdata.length === 0 ?
-                                <div>
+                                <div className="empty-cart">
                                     <h1>No items</h1>
+                                    <Link to="/productlist"> <button className="btn linked"> View more products </button></Link>
                                 </div>
                                 :
                                 cartdata.map((item) => {
                                     return (
                                         <CartCard cartitem={item} key={item.id} />
-
                                     )
                                 })
                         }

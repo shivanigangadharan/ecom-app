@@ -15,7 +15,6 @@ export const AuthProvider = ({ children }) => {
             errorMessage: ""
         })
         try {
-
             const userResponse = await axios.post(`/api/auth/signup`, JSON.stringify({
                 email: email,
                 password: password,
@@ -29,7 +28,7 @@ export const AuthProvider = ({ children }) => {
             }
         }
         catch (e) {
-            console.log("Found error: ", e);
+            console.log("Error: ", e);
             alert("Credentials invalid. Please sign-up if you don't already have an account.");
         }
     }
@@ -57,7 +56,7 @@ export const AuthProvider = ({ children }) => {
             }
         }
         catch (e) {
-            console.log("Found error : ", e);
+            console.log("Error : ", e);
             setError({
                 errorExists: true,
                 errorMessage: e

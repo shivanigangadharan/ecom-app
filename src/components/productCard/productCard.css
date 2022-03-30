@@ -1,0 +1,21 @@
+.wishlist-btn{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: red;
+    background: var(--lightergrey);
+    padding: 8px;
+    border-radius: var(--rounded);
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.wishlist-btn:hover{
+    background: white;
+}
+.container-card{
+    position: relative;
+}
