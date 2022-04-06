@@ -5,9 +5,10 @@ import { useAuth } from '../../context/authContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
+import PriceCard from '../../components/priceCard/priceCard';
 
 export default function Cart() {
-    const { user, encodedToken } = useAuth();
+    const { user, encodedToken, setUser } = useAuth();
     const [cartdata, setCartdata] = useState([]);
     const navigate = useNavigate();
     useEffect(async () => {
@@ -17,14 +18,16 @@ export default function Cart() {
                     authorization: encodedToken
                 }
             });
-            setCartdata(res.data.cart);
+            const original = res.data.cart.filter((ele, index, arr) => arr.findIndex(e => (e._id === ele._id)) === index);
+            setCartdata(original);
+            setUser({ ...user, cart: res.data.cart.filter((ele, index, arr) => arr.findIndex(e => (e._id === ele._id)) === index) });
         }
         else {
             navigate("/login");
             alert("Please login first to see your cart.");
         }
 
-    }, [user])
+    }, [user ? user.cart : user])
     return (
         <div>
             <div className="cart-page">
@@ -40,35 +43,12 @@ export default function Cart() {
                                 :
                                 cartdata.map((item) => {
                                     return (
-                                        <CartCard cartitem={item} key={item.id} />
+                                        <CartCard product={item} key={item.id} />
                                     )
                                 })
                         }
                     </div>
-                    <div className="price-details">
-                        <h4 className="bold">PRICE DETAILS</h4>
-                        <hr />
-                        <div className="flex-between">
-                            <span>Price ({cartdata.length} items) </span>
-                            <span className="text-right">2000 </span>
-                        </div>
-                        <div className="flex-between">
-                            <span>Discount </span>
-                            <span className="text-right">-1999 </span>
-                        </div>
-                        <div className="flex-between">
-                            <span>Delivery charges </span>
-                            <span className="text-right"> 499 </span>
-                        </div>
-                        <hr />
-                        <div className="flex-between">
-                            <span className="bold">TOTAL AMOUNT</span>
-                            <span className="text-right bold">3499</span>
-                        </div>
-                        <span>You will save Rs. 1999 on this order</span>
-                        <button className="login">Place order</button>
-
-                    </div>
+                    <PriceCard cartdata={cartdata} />
 
                 </div>
             </div>

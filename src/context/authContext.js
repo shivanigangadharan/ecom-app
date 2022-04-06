@@ -20,7 +20,6 @@ export const AuthProvider = ({ children }) => {
                 password: password,
             }));
             if (userResponse.status === 201) {
-                console.log("res", userResponse)
                 localStorage.setItem("token", JSON.stringify(userResponse.data.encodedToken));
                 setEncodedToken(userResponse.data.encodedToken);
                 setUser(userResponse.data.createdUser);
@@ -45,6 +44,8 @@ export const AuthProvider = ({ children }) => {
             });
             if (userResponse.statusText === "OK") {
                 setUser(userResponse.data.foundUser);
+                setEncodedToken(userResponse.data.encodedToken);
+                localStorage.setItem("token", JSON.stringify(userResponse.data.encodedToken));
                 return true;
             }
             else {
