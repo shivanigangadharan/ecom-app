@@ -22,7 +22,6 @@ export default function CartCard({ product }) {
                         authorization: encodedToken
                     }
                 });
-                console.log(res.data, "...", product);
                 setUser({ ...user, wishlist: res.data.wishlist });
                 handleRemove();
             }
@@ -32,41 +31,21 @@ export default function CartCard({ product }) {
                     authorization: encodedToken
                 }
             });
-            console.log(res.data, "...", product);
             setUser({ ...user, wishlist: res.data.wishlist });
             handleRemove();
         }
-
-        // setUser({ ...user, wishlist: res.data.wishlist });
-        console.log(user.wishlist);
-
     }
     const changeQty = async (e) => {
-        if (e === "+") {
-            const res = await axios.post(`/api/user/cart/${_id}`, {
-                action: {
-                    type: "increment"
+        const res = await axios.post(`/api/user/cart/${_id}`, {
+            action: {
+                type: e === '+' ? "increment" : "decrement"
+            }
+        }, {
+                headers: {
+                    authorization: encodedToken
                 }
-            }, {
-                    headers: {
-                        authorization: encodedToken
-                    }
-                }
-            )
-        }
-        else {
-            const res = await axios.post(`/api/user/cart/${_id}`, {
-                action: {
-                    type: "decrement"
-                }
-            }, {
-                    headers: {
-                        authorization: encodedToken
-                    }
-                }
-            )
-
-        }
+            }
+        )
     }
     return (
         <div>

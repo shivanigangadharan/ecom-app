@@ -19,7 +19,7 @@ export default function Navbar() {
         });
         console.log(res.data.wishlist.length);
         setWishlistNumber(res.data.wishlist.length);
-    })
+    }, [user])
 
     const handleLogout = () => {
         setUser(null);
