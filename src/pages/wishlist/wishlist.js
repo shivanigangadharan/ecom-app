@@ -3,8 +3,8 @@ import './wishlist.css';
 import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router';
 import axios from 'axios';
-import WishlistCard from '../../components/wishlistCard/wishlistCard';
 import { Link } from 'react-router-dom';
+import WishlistCard from '../../components/wishlistCard/wishlistCard';
 
 export default function Wishlist() {
     const { user, setUser, encodedToken } = useAuth();
