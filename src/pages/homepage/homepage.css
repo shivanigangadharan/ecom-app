@@ -9,6 +9,7 @@
 }
 .category-img{
     width: 400px;
+    cursor: pointer;
 }
 .brandname{
     color: var(--darkgrey);

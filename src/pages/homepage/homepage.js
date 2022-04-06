@@ -11,7 +11,6 @@ export default function Homepage() {
 
     useEffect(async () => {
         const res = await axios.get("/api/categories");
-        console.log(res);
     })
 
     const { state, dispatch } = useFilter();
@@ -26,9 +25,9 @@ export default function Homepage() {
         <div>
             <div className="homepage">
                 <div className="img-grid">
-                    <img className="category-img" onClick={() => handleCategory("womens clothing")} alt="clothing" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-                    <img className="category-img" onClick={() => handleCategory("mens clothing")} alt="clothing" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-                    <img className="category-img" onClick={() => handleCategory("kids clothing")} alt="clothing" src="https://images.unsplash.com/photo-1611428813653-aa606c998586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1165&q=80" />
+                    <img className="category-img" onClick={() => handleCategory("womens clothing")} alt="womens clothing" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+                    <img className="category-img" onClick={() => handleCategory("mens clothing")} alt="mens clothing" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+                    <img className="category-img" onClick={() => handleCategory("kids clothing")} alt="kids clothing" src="https://images.unsplash.com/photo-1611428813653-aa606c998586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1165&q=80" />
                 </div>
 
                 <div className="content-grid">
