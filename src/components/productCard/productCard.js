@@ -12,7 +12,6 @@ export default function ProductCard({ product }) {
     const navigate = useNavigate();
     useEffect(() => {
         if (user && user.wishlist.length > 0) {
-            console.log(user.wishlist);
             user.wishlist.map((item) => {
                 if (item._id === _id) {
                     setWish(true)
@@ -22,7 +21,6 @@ export default function ProductCard({ product }) {
     }, [])
 
     const handleAddToCart = async () => {
-        console.log("user at prod list:", user);
         if (user) {
             const res = await axios.post("/api/user/cart", { product }, {
                 headers: {
@@ -30,7 +28,6 @@ export default function ProductCard({ product }) {
                 }
             })
             setAdded(true);
-            console.log(res);
             setUser({ ...user, cart: [...user.cart, { product }] })
         }
         else {
@@ -60,10 +57,8 @@ export default function ProductCard({ product }) {
     const handleWishClick = () => {
         if (user) {
             if (user.wishlist.some(item => item._id === _id)) {
-                console.log(title, user.wishlist.some(item => item._id === _id));
                 removeWish();
             } else {
-                console.log("Not in wishlist");
                 addWish();
             }
         }

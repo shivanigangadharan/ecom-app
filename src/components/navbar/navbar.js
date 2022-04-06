@@ -17,7 +17,6 @@ export default function Navbar() {
                 authorization: encodedToken
             }
         });
-        console.log(res.data.wishlist.length);
         setWishlistNumber(res.data.wishlist.length);
     }, [user])
 

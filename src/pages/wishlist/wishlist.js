@@ -17,7 +17,6 @@ export default function Wishlist() {
                     authorization: encodedToken
                 }
             });
-            console.log("res data: ", res.data.wishlist);
             setWishlistData(res.data.wishlist);
         }
         else {
