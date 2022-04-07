@@ -3,6 +3,7 @@ import './navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
+import logo from '../../assets/logo.png';
 
 export default function Navbar() {
     const [loginBtn, setLoginBtn] = useState();
@@ -27,14 +28,15 @@ export default function Navbar() {
     return (
         <div>
             <div className="container-nav">
-                <Link to="/">
-                    <span className="brandname">E-mart</span>
+                <Link to="/" style={{ 'display': 'flex', 'alignItems': 'center' }}>
+                    <span className="brand-name">STYLEKART</span>
+                    <img className="logo" src={logo} alt="logo" />
                 </Link>
-                <div className="flex">
+                {/* <div className="flex">
                     <input className="searchbar" type="text" placeholder="Search" />
                     <i className="search-icon fas fa-search" aria-hidden="true"></i>
-                </div>
-                <div className="nav-options">
+                </div> */}
+                <div className="navbar-options">
                     <span onClick={() => { user ? handleLogout() : navigate("/login") }}> {user ? "Logout" : "Login"} </span>
                     <Link to="/wishlist">
                         <i className="nav-icon fa-regular fa-heart badge-icon">

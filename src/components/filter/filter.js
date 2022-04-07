@@ -18,7 +18,7 @@ export default function Filter() {
             <div className="container-filters">
                 <h3 className="filter-top" onClick={(e) => { dispatch({ type: "CLEAR" }) }}>
                     <b className="bold"> Filters</b>
-                    <u>Clear</u>
+                    <u style={{ 'cursor': 'pointer' }}>Clear</u>
                 </h3>
                 <h3 className="bold">Price</h3>
                 <input value={state.clear == true ? 1000 : undefined} min="500" max="1500" onClick={(e) => { dispatch({ type: "FILTER_BY_PRICE", payload: e.target.value }) }} className="pricerange" type="range" list="pricerange" />
@@ -31,15 +31,15 @@ export default function Filter() {
                 <h3 className="bold">Category</h3>
                 <div className="cateory">
                     <div>
-                        <input checked={state.clear == true ? false : undefined} onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="womens clothing" type="checkbox" />
+                        <input checked={state.clear == true ? false : undefined} id="womens clothing" onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="womens clothing" type="checkbox" />
                         <label htmlFor="womens clothing">Womens clothing</label>
                     </div>
                     <div>
-                        <input checked={state.clear == true ? false : undefined} onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="mens clothing" type="checkbox" />
+                        <input checked={state.clear == true ? false : undefined} id="mens clothing" onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="mens clothing" type="checkbox" />
                         <label htmlFor="mens clothing">Mens clothing</label>
                     </div>
                     <div>
-                        <input checked={state.clear == true ? false : undefined} onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="kids clothing" type="checkbox" />
+                        <input checked={state.clear == true ? false : undefined} id="kids clothing" onClick={(e) => { toggleCheckbox(e.target) }} className="checkbox" value="kids clothing" type="checkbox" />
                         <label htmlFor="kids clothing">Kids clothing</label>
                     </div>
                 </div>
@@ -47,8 +47,8 @@ export default function Filter() {
                 {STARS.map((star, index) => {
                     return (
                         <div key={index}>
-                            <input checked={state.clear == true ? false : undefined} onClick={(e) => { dispatch({ type: "FILTER_BY_RATING", payload: star }) }} type="radio" id="4+" name="rating" />
-                            <label htmlFor="{star}"> {star} stars and above</label>
+                            <input id={star} checked={state.clear == true ? false : undefined} onClick={(e) => { dispatch({ type: "FILTER_BY_RATING", payload: star }) }} type="radio" name="rating" />
+                            <label htmlFor={star}> {star} stars and above</label>
                         </div>
                     )
                 })}

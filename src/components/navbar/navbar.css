@@ -3,13 +3,32 @@
     top: 0;
     left: 0;
     width: 100%;
+    padding: 1rem 2rem;
 }
-.nav-options{
+.brand-name{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--darkgrey);
+}
+.logo{
+    width: 2rem;
+    margin-left: 10px;
+}
+.navbar-options{
+    display: flex;
     gap: 40px;
     cursor: pointer;
 }
-.nav-options a{
+.nav-icon:hover{
+    color: var(--lavender);
+    transition-duration: 0.1s;
+}
+.navbar-options>*{
+    font-weight: 500;
     color: var(--darkgrey);
+}
+.navbar-options>*:hover{
+    color: var(--lavender);
 }
 .searchbar{
     border: 1px solid var(--lightgrey);

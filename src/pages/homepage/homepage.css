@@ -9,10 +9,25 @@
 }
 .category-img{
     width: 400px;
+    height: 250px;
     cursor: pointer;
 }
 .brandname{
     color: var(--darkgrey);
+}
+.category-box{
+    position: relative;
+}
+.category-box:hover{
+    border: 1px solid white;
+    box-shadow: 1px 1px 5px 3px var(--lightgrey);
+}
+.category-label{
+    position: absolute;
+    top: 150px;
+    background: white;
+    width: 100%;
+    text-align: center;
 }
 .content-grid{
     display: grid;
