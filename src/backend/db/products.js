@@ -56,7 +56,7 @@ export const products = [
     title: "Unisex cotton Tshirt",
     brand: "Powerpuff",
     price: 250,
-    imgurl: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9340270a.webp",
+    imgurl: "https://4.imimg.com/data4/DL/QS/MY-71968/kids-plain-round-neck-unisex-tshirts-500x500.jpg",
     category: "kids clothing",
     rating: 3.9,
   },

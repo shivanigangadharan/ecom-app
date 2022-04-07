@@ -18,8 +18,8 @@ export default function ProductList() {
         <div>
             <Filter />
             <div className="products-page">
-                <span className="bold">Showing all products</span>
-                ({categoryFiltered.length} products)
+                <span className="bold">Showing {categoryFiltered.length} products</span>
+
                 <div className="products-grid">
                     {categoryFiltered.map((product) => {
                         return <ProductCard product={product} key={product.id} />

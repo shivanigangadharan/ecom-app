@@ -18,4 +18,8 @@
 }
 .container-card{
     position: relative;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
