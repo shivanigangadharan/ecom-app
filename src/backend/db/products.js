@@ -13,7 +13,7 @@ export const products = [
     price: 800,
     imgurl: "https://rukminim2.flixcart.com/image/714/857/k0h12fk0/t-shirt/v/t/v/m-askporgfe35420-allen-solly-original-imafk8s5wnqwygff.jpeg?q=50",
     category: "mens clothing",
-    rating: 4,
+    rating: 2.3,
   },
   {
     _id: uuid(),
@@ -40,7 +40,7 @@ export const products = [
     price: 2500,
     imgurl: "https://allensolly.imgix.net/img/app/product/2/220051-727357.jpg?auto=format",
     category: "womens clothing",
-    rating: 3.8,
+    rating: 1.7,
   },
   {
     _id: uuid(),
@@ -68,5 +68,23 @@ export const products = [
     imgurl: "https://asset1.cxnmarksandspencer.com/is/image/mands/OD_01_T43_3219K_F4_X_EC_0?$Intl_PDP_Tab$",
     category: "womens clothing",
     rating: 4.7
+  },
+  {
+    _id: uuid(),
+    title: "Casual denim shirt",
+    brand: "Indiamart",
+    price: 1700,
+    imgurl: "https://5.imimg.com/data5/WX/XG/MY-5002636/designer-mens-denim-shirt-500x500.jpg",
+    category: "mens clothing",
+    rating: 2.6
+  },
+  {
+    _id: uuid(),
+    title: "Kids denim jeans",
+    brand: "Kumartrading",
+    price: 450,
+    imgurl: "https://www.kumartrading.in/image/cache/catalog/607186b98f9cb-800x800.jpg",
+    category: "kids clothing",
+    rating: 1.9
   },
 ];

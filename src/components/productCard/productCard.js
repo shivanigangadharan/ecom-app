@@ -74,7 +74,7 @@ export default function ProductCard({ product }) {
             <div className="content center">
                 <h3 className="item-name">{title}</h3>
                 <p className="grey-text">{brand} </p>
-                <p> Rating : {rating} </p>
+                <p> Rating : {rating} <i className="rating-icon fa-solid fa-star"></i> </p>
                 <b>Rs. {price}</b>
             </div>
             <button onClick={handleAddToCart} className={added ? "btn move-btn cart" : "btn login cart"}>{added ? "Added" : "Add to cart"}</button>

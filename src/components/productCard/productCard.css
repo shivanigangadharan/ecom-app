@@ -16,6 +16,9 @@
 .wishlist-btn:hover{
     background: white;
 }
+.rating-icon{
+    color: gold;
+}
 .container-card{
     position: relative;
     height: 550px;
