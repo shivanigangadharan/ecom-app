@@ -19,6 +19,8 @@ https://stylekart.netlify.app/
     - Login
     - Logout
 
+Guest login credentials - Email : adarshbalika@gmail.com , password : adarshbalika
+
 - ### Homepage
     Has three categories, clicking on which, user will be directed to the product listing page having products of only those categories
     
