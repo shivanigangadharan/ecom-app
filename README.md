@@ -13,6 +13,11 @@ To run this app in your local, clone this repository and navigate to the folder 
 ## Deployed link
 https://stylekart.netlify.app/
 
+## Technologies used
+- React JS
+- React router dom
+- Mockbee (for backend)
+
 ## Features of the app
 - Auth
     - Sign up
