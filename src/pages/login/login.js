@@ -23,6 +23,16 @@ export default function Login() {
         }
 
     }
+    const guestLogin = async (e) => {
+        e.preventDefault();
+        const LoginResponse = await LoginUser("guest@gmail.com", "guest123");
+        if (LoginResponse) {
+            navigate("/");
+        } else {
+            alert("Invalid credentials, please sign up.");
+        }
+
+    }
     const { user } = useAuth();
     const navigate = useNavigate();
     return (
@@ -49,6 +59,8 @@ export default function Login() {
                             <a href="#">Forgot your password?</a>
                         </div>
                         <button onClick={e => handleLogin(e)} className="btn login">Login</button>
+                        <button onClick={e => guestLogin(e)} className="btn login">Login as a guest</button>
+
                         <div className="create">
                             <Link to="/signup">
                                 Create new account
